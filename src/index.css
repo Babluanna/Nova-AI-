@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-serif: "Fraunces", Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    -webkit-tap-highlight-color: transparent;
+    background-color: #F8F6F0;
+    color: #181715;
+    color-scheme: light;
+  }
+
+  html.dark {
+    background-color: #11100E;
+    color: #F2EFE9;
+    color-scheme: dark;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    transition: background-color 260ms cubic-bezier(0.22, 1, 0.36, 1), color 260ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .dark body {
+    letter-spacing: 0.008em;
+  }
+}
+
+.font-serif-editorial {
+  font-family: var(--font-serif);
+  font-variation-settings: "SOFT" 50, "WONK" 0;
+}
+
+.nova-luxury-canvas {
+  background-color: #F8F6F0;
+  background-image: radial-gradient(
+    ellipse 85% 55% at 50% 0%,
+    rgba(214, 192, 158, 0.18) 0%,
+    rgba(248, 246, 240, 0) 72%
+  );
+}
+
+.dark .nova-luxury-canvas {
+  background-color: #11100E;
+  background-image: radial-gradient(
+    ellipse 85% 55% at 50% 0%,
+    rgba(212, 163, 115, 0.075) 0%,
+    rgba(17, 16, 14, 0) 72%
+  );
+}
+
+/* Subtle luxury scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(24, 23, 21, 0.14);
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(242, 239, 233, 0.16);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

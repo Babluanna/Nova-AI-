@@ -1,0 +1,6 @@
+{
+  "name": "Nova AI",
+  "description": "A minimalist multimodal AI assistant with real-time Gemini Live voice conversations and free Gemini & OpenRouter models.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
